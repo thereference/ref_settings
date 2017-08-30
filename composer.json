@@ -1,7 +1,7 @@
 {
     "name": "ref_beluga/ref_settings",
     "description": "Settings entity for to make easy content settings forms.",
-    "type": "internal-drupal-module",
+    "type": "drupal-module",
     "license": "GPL-2.0+",
     "authors": [
         {

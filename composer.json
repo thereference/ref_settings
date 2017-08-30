@@ -1,0 +1,18 @@
+{
+    "name": "ref_beluga/ref_settings",
+    "description": "Settings entity for to make easy content settings forms.",
+    "type": "internal-drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Steven De Boeck",
+            "email": "sdeboeck@reference.be"
+        }
+    ],
+    "minimum-stability": "stable",
+    "support": {
+        "issues": "https://bitbucket.org/ref_beluga/ref-settings/issues",
+        "source": "https://sdeboeck@bitbucket.org/ref_beluga/ref-settings.git"
+    },
+    "require": {}
+}

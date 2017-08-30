@@ -1,0 +1,6 @@
+name: 'Ref Settings'
+description: Content based settings forms
+package: ref
+
+type: module
+core: 8.x

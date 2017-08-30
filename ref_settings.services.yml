@@ -1,0 +1,5 @@
+services:
+  paramconverter.settings:
+    class: Drupal\ref_settings\ParamConverter\SettingsConverter
+    tags:
+      - { name: paramconverter }

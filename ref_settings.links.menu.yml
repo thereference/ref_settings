@@ -1,0 +1,5 @@
+entity.settings_type.collection:
+  title: 'Settings types'
+  parent: system.admin_structure
+  description: 'Manage settings types.'
+  route_name: entity.settings_type.collection

@@ -1,0 +1,31 @@
+# SettingsType routing definition
+entity.settings_type.collection:
+  path: '/admin/structure/settings_type'
+  defaults:
+    _entity_list: 'settings_type'
+    _title: 'Settings types'
+  requirements:
+    _permission: 'administer site configuration'
+
+settings.type_add:
+  path: '/admin/structure/settings_type/add'
+  defaults:
+    _entity_form: 'settings_type.add'
+    _title: 'Add settings type'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.settings_type.edit_form:
+  path: '/admin/structure/settings_type/{settings_type}'
+  defaults:
+    _entity_form: 'settings_type.edit'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.settings_type.delete_form:
+  path: '/admin/structure/settings_type/{settings_type}/delete'
+  defaults:
+    _entity_form: 'settings_type.delete'
+    _title: 'Delete'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_entity_operation_alter().
+ *
+ * @param array $operations
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function ref_settings_entity_operation_alter(array &$operations, \Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\ref_settings\Entity\SettingsType) {
+    $setting = \Drupal\ref_settings\Entity\Settings::loadByName($entity->id());
+    if ($setting) {
+      $operations['settings'] = array(
+        'title' => t('Settings'),
+        'url' => $setting->toUrl('edit-form'),
+      );
+    }
+  }
+}

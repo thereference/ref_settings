@@ -1,0 +1,5 @@
+settings.type_add:
+  route_name: 'settings.type_add'
+  title: 'Add settings type'
+  appears_on:
+    - entity.settings_type.collection

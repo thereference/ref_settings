@@ -3,3 +3,8 @@ services:
     class: Drupal\ref_settings\ParamConverter\SettingsConverter
     tags:
       - { name: paramconverter }
+
+  ref_settings.subscriber:
+    class: Drupal\ref_settings\Routing\SettingsRouteSubscriber
+    tags:
+      - { name: event_subscriber }

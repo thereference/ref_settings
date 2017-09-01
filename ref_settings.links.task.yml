@@ -1,0 +1,12 @@
+entity.settings.edit_form:
+  title: 'Edit'
+  route_name: entity.settings.edit_form
+  base_route: entity.settings.canonical
+entity.settings_type.edit_form:
+  title: 'Edit'
+  route_name: entity.settings_type.edit_form
+  base_route: entity.settings_type.edit_form
+entity.settings_type.collection:
+  title: 'List'
+  route_name: entity.settings_type.collection
+  base_route: entity.settings_type.collection

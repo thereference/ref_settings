@@ -5,7 +5,7 @@ entity.settings_type.collection:
     _entity_list: 'settings_type'
     _title: 'Settings types'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'view settings overview'
 
 settings.type_add:
   path: '/admin/structure/settings_type/add'
@@ -13,14 +13,14 @@ settings.type_add:
     _entity_form: 'settings_type.add'
     _title: 'Add settings type'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer settings configuration'
 
 entity.settings_type.edit_form:
   path: '/admin/structure/settings_type/{settings_type}'
   defaults:
     _entity_form: 'settings_type.edit'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer settings configuration'
 
 entity.settings_type.delete_form:
   path: '/admin/structure/settings_type/{settings_type}/delete'
@@ -28,4 +28,4 @@ entity.settings_type.delete_form:
     _entity_form: 'settings_type.delete'
     _title: 'Delete'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer settings configuration'

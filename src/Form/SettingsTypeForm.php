@@ -4,6 +4,7 @@ namespace Drupal\ref_settings\Form;
 
 use Drupal\Core\Entity\BundleEntityFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\language\Entity\ContentLanguageSettings;
 
 class SettingsTypeForm extends BundleEntityFormBase {
 
@@ -40,6 +41,31 @@ class SettingsTypeForm extends BundleEntityFormBase {
       '#default_value' => $entity_type->getDescription(),
       '#description' => t('This text will be displayed on the settings overview page.'),
     ];
+
+    $form['additional_settings'] = [
+      '#type' => 'vertical_tabs',
+      '#attached' => [
+        'library' => ['node/drupal.content_types'],
+      ],
+    ];
+
+    if ($this->moduleHandler->moduleExists('language')) {
+      $form['language'] = [
+        '#type' => 'details',
+        '#title' => t('Language settings'),
+        '#group' => 'additional_settings',
+      ];
+
+      $language_configuration = ContentLanguageSettings::loadByEntityTypeBundle('settings', $entity_type->id());
+      $form['language']['language_configuration'] = [
+        '#type' => 'language_configuration',
+        '#entity_information' => [
+          'entity_type' => 'settings',
+          'bundle' => $entity_type->id(),
+        ],
+        '#default_value' => $language_configuration,
+      ];
+    }
     
     return $this->protectBundleIdElement($form);
   }

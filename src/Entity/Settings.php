@@ -7,6 +7,7 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\ref_settings\SettingsInterface;
 
 /**
  * Defines the settings entity.
@@ -25,23 +26,20 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   },
  *   handlers = {
  *     "form" = {
- *       "default" = "Drupal\Core\Entity\ContentEntityForm",
- *       "add" = "Drupal\Core\Entity\ContentEntityForm",
- *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
- *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "default" = "Drupal\ref_settings\Form\SettingsForm",
+ *       "edit" = "Drupal\ref_settings\Form\SettingsForm",
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
  *     },
  *     "storage_schema" = "Drupal\ref_settings\SettingsStorageSchema",
  *     "access" = "Drupal\ref_settings\SettingsAccessControlHandler",
+ *     "translation" = "Drupal\content_translation\ContentTranslationHandler"
  *   },
  *   links = {
- *     "add-page" = "/settings/add",
- *     "add-form" = "/settings/add/{settings_type}",
- *     "edit-form" = "/settings/{settings}/edit",
- *     "delete-form" = "/settings/{settings}/delete",
- *     "collection" = "/admin/content/settings",
+ *     "edit-form" = "/admin/structure/settings_type/settings/{settings}/edit",
+ *     "collection" = "/admin/structure/settings_type/settings",
+ *     "canonical" = "/admin/structure/settings_type/settings/{settings}",
  *   },
  *   permission_granularity = "bundle",
  *   bundle_entity_type = "settings_type",
@@ -50,7 +48,15 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   field_ui_base_route = "entity.settings_type.edit_form",
  * )
  */
-class Settings extends ContentEntityBase implements ContentEntityInterface {
+class Settings extends ContentEntityBase implements SettingsInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function label() {
+    $settingsType = SettingsType::load($this->getName());
+    return $settingsType->label();
+  }
 
   /**
    * Gets the settings name.

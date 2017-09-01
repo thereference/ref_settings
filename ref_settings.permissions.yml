@@ -1,3 +1,9 @@
-administer settings:
-  title: 'Administer settings'
+administer settings configuration:
+  title: 'Administer settings configuration'
+
+edit settings data:
+  title: 'Edit settings data'
+
+view settings overview:
+  title: 'View settings overview'
 

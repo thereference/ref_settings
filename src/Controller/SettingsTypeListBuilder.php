@@ -16,6 +16,7 @@ class SettingsTypeListBuilder extends ConfigEntityListBuilder {
   public function buildHeader() {
     $header['label'] = $this->t('Settings types');
     $header['id'] = $this->t('Machine name');
+    $header['description'] = $this->t('Description');
     return $header + parent::buildHeader();
   }
 
@@ -25,7 +26,7 @@ class SettingsTypeListBuilder extends ConfigEntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     $row['label'] = $entity->label();
     $row['id'] = $entity->id();
-    // You probably want a few more properties here...
+    $row['description'] = $entity->getDescription();
     return $row + parent::buildRow($entity);
   }
 

@@ -2,15 +2,15 @@
 
 namespace Drupal\ref_settings;
 
-use Drupal\Core\Routing\UrlGeneratorTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\node\Entity\NodeType;
 use Drupal\ref_settings\Entity\SettingsType;
 
 /**
  * Provides dynamic permissions for settings of different types.
  */
 class SettingsPermissions {
+
+  use StringTranslationTrait;
 
   /**
    * Returns an array of settings type permissions.

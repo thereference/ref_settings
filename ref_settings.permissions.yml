@@ -7,3 +7,5 @@ edit settings data:
 view settings overview:
   title: 'View settings overview'
 
+permission_callbacks:
+  - \Drupal\ref_settings\SettingsPermissions::settingsTypePermissions
